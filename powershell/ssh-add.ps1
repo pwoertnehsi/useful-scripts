@@ -28,7 +28,7 @@ if (-not (Test-Path -Path $HOME\.ssh\keys)) {
 	IdentitiesOnly yes
 "@ | Add-Content -Path $HOME\.ssh\config
 
-	type $HOME\.ssh\keys\id_ed25519_$serverAlias.pub | ssh $username@$serverIP -p $port "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys"
+	Get-Content $HOME\.ssh\keys\id_ed25519_$serverAlias.pub | ssh $username@$serverIP -p $port "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys"
 }
 
 else {
@@ -39,7 +39,7 @@ else {
 	IdentitiesOnly yes
 "@ | Add-Content -Path $HOME\.ssh\config
 
-	type $HOME\.ssh\keys\id_ed25519_$serverAlias.pub | ssh $username@$serverIP -p $port "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys"
+	Get-Content $HOME\.ssh\keys\id_ed25519_$serverAlias.pub | ssh $username@$serverIP -p $port "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys"
 
 }
 
