@@ -13,7 +13,19 @@ Param(
 )
 
 if (-not $InputFile) {
-    Write-Host "Usage: .\videocut.ps1 -i input.mp4 [params]"
+    $Usage = @"
+Usage: videocut [param] <arg>
+  -i [file]     Input file path
+  -o [dir]      Output directory path
+  -q [num]      CRF quality (default: 30)
+  -t [num]      Square tile resolution (e.g. 200 will cut the file in 200x200 tiles)
+  -w [num]      Output tile width (default: 100)
+  -h [num]      Output tile height (default: 100)
+  -x [num]      Number of horizontal tiles to cut (default: 10)
+  -y [num]      Number of vertical tiles to cut (default: 10)
+  -p [num]      Maximum number of ffmpeg processes (default: 4)
+"@
+    Write-Host $Usage
     exit
 }
 
