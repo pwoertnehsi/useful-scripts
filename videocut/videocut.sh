@@ -16,6 +16,8 @@ FFMPEG_PIDS=()
 ALIVE_PIDS=()
 DONE_PIDS=()
 
+echo -en "\033[?25l"
+
 usage() {
 cat <<EOF
 Usage: videocut [param] <arg>
@@ -30,6 +32,7 @@ Usage: videocut [param] <arg>
   -p [num]	Maximum number of ffmpeg processes (default: 4)  
 
 EOF
+echo -en "\033[?25h"
 exit 0
 }
 
@@ -46,6 +49,7 @@ cleanup() {
     fi
 
     printf "\r\033[2K\033[91mUser interrupted\n\033[0m"
+    echo -en "\033[?25h"
     exit 1
 }
 
@@ -215,3 +219,5 @@ printf "Total tiles:   %s\n" "$TOTAL_TILES"
 printf "Output size:   %s\n" "${TOTAL_SIZE:-0}"
 printf "Directory:     %s\n" "$OUTPUT"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+echo -en "\033[?25h"
