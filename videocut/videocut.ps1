@@ -13,7 +13,7 @@ Param(
     [int]$Crf = 30,
 
     [Alias("t")]
-    [int]$Tile = 64,
+    [int]$Tile = 200,
 
     [Alias("w")]
     [int]$OutW = 100,
@@ -34,8 +34,8 @@ if (-not $InputFile) {
     $Usage = @"
 Usage: videocut [param] <arg>
   -i [file]     Input file path
-  -o [dir]      Output directory path. Will fallback to script's dir /output folder if not specified
-  -q [num]      CRF quality. 30 is often fine
+  -o [dir]      Output directory path
+  -q [num]      CRF quality (default: 30)
   -t [num]      Square tile resolution (e.g. 200 will cut the file in 200x200 tiles)
   -w [num]      Output tile width (default: 100)
   -h [num]      Output tile height (default: 100)

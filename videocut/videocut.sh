@@ -11,6 +11,7 @@ OUTH=100
 HOR_TILES=9
 VER_TILES=9
 MAX_PROCESSES=4
+CRF=30
 LAST_RENDER=0
 FFMPEG_PIDS=()
 ALIVE_PIDS=()
@@ -22,8 +23,8 @@ usage() {
 cat <<EOF
 Usage: videocut [param] <arg>
   -i [file]	Input file path
-  -o [dir] 	Output directory path. Will fallback to script's dir /output folder if not specified
-  -q [num]	CRF quality. 30 is often fine
+  -o [dir] 	Output directory path
+  -q [num]	CRF quality (default: 30)
   -t [num]	Square tile resolution (e.g. 200 will cut the file in 200x200 tiles)
   -w [num]	Output tile width (default: 100)
   -h [num]	Output tile height (default: 100)
